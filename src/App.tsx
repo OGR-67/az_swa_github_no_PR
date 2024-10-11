@@ -4,11 +4,12 @@ import viteLogo from '/vite.svg'
 import useSWR from 'swr'
 import './App.css'
 
+// @ts-ignore
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function App() {
   const [count, setCount] = useState(0)
-  const { data, error, isLoading } = useSWR('/api/user', fetcher)
+  const { data, error, isLoading } = useSWR('/api/httpTrigger1', fetcher)
 
   return (
     <>
@@ -26,6 +27,8 @@ function App() {
           count is {count}
         </button>
         <p>
+        {isLoading}
+        {error}
           {data}
         </p>
       </div>
