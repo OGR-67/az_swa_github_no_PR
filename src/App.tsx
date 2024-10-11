@@ -9,7 +9,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function App() {
   const [count, setCount] = useState(0)
-  const { data, error, isLoading } = useSWR('/api/httpTrigger1', fetcher)
+  const { data, error, isLoading } = useSWR('/api/ping', fetcher)
 
   return (
     <>
